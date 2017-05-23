@@ -9,7 +9,7 @@ This small package provides two utilities:
    that are guaranteed to be atomic when writing to a pipe, i.e.
    `PIPE_BUF` and `_PC_PIPE_BUF`, and print them.
  * _measure-pipebuf_: measure the actual capacity of a pipe
-   buffer which can exceed the values returned by _pipebuf-constants_.
+   buffer which usually exceeds the value returned by _pipebuf-constants_.
 
 ## Pipe buffers
 
@@ -34,7 +34,7 @@ executes series of tests measuring
 
  * which amount of bytes can be written into a pipe without being
    blocked and
- * successfully read.
+ * be successfully read subsequently.
 
 As kernel implementations tend to use not just one buffer for
 a pipe but a series of buffers, the total capacity of a pipe buffer
@@ -72,7 +72,7 @@ sizes (usually powers of 2):
    Jeremy Fishman in [this posting](https://stackoverflow.com/questions/5218741/set-pipe-buffer-size). According to him this was introduced
    in Linux 2.6.35.
 
-The important point from these discussions is that the
+The important point of these discussions is that the
 pipe buffer size is not necessarily fixed. There are systems
 that allow the size to be dynamically changed and other systems
 may possible downsize pipe buffers if memory resources become scarce.
